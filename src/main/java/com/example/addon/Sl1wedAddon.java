@@ -1,7 +1,8 @@
-package com.example.addon;  // Or com.sl1wed.addon if you renamed it
+package com.example.addon;
 
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.modules.Modules;
+import com.example.addon.modules.AutoResell;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,16 +12,21 @@ public class Sl1wedAddon extends MeteorAddon {
     @Override
     public void onInitialize() {
         LOG.info("Initializing Sl1wed's Addon");
-        // You'll register your modules here later
+        
+        // REGISTER THE MODULE HERE
+        Modules.get().add(new AutoResell());
+        
+        LOG.info("AutoResell module registered successfully!");
     }
     
-@Override
-public void onRegisterCategories() {
-    Modules.registerCategory(Categories.SL1WED_ADDON);
-}
+    @Override
+    public void onRegisterCategories() {
+        // Register your custom tab/category
+        Modules.registerCategory(Categories.SL1WED_ADDON);
+    }
     
     @Override
     public String getPackage() {
-        return "com.example.addon";  // Must match your actual package path
+        return "com.example.addon";
     }
 }
