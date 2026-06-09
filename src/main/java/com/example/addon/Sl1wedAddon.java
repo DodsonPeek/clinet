@@ -14,10 +14,10 @@ public class Sl1wedAddon extends MeteorAddon {
         // You'll register your modules here later
     }
     
-    @Override
-    public void onRegisterCategories() {
-        // You'll register your custom tab here later
-    }
+@Override
+public void onRegisterCategories() {
+    Modules.registerCategory(Categories.SL1WED_ADDON);
+}
     
     @Override
     public String getPackage() {
